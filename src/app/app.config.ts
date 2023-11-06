@@ -3,7 +3,13 @@ import { provideRouter, withEnabledBlockingInitialNavigation } from '@angular/ro
 import { appRoutes } from './app.routes';
 import { provideStore, provideState } from '@ngrx/store';
 import { provideEffects } from '@ngrx/effects';
+import { provideAnimations } from '@angular/platform-browser/animations';
 
 export const appConfig: ApplicationConfig = {
-  providers: [provideEffects(), provideStore(), provideRouter(appRoutes, withEnabledBlockingInitialNavigation())],
+  providers: [
+    provideEffects(),
+    provideStore(),
+    provideRouter(appRoutes, withEnabledBlockingInitialNavigation()),
+    provideAnimations(),
+  ],
 };
