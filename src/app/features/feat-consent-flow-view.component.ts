@@ -31,8 +31,11 @@ import { MenuItem } from '../shared/model/menu';
       [currentMenu]="currentMenu"
       [menuItems]="menuItems"
       (menuSelectedEvent)="openMenu($event)">
-      <div class="flex flex-col bg-amber-500">
-        <consent-flow-give-consent [hidden]="currentMenu !== 'give-consent'"></consent-flow-give-consent>
+      <div class="flex flex-col justify-center items-center w-full mt-20">
+        <consent-flow-give-consent
+          [hidden]="currentMenu !== 'give-consent'"
+          (redirectToConsentOverview)="openMenu('consents')"
+          class="w-10/12"></consent-flow-give-consent>
         <consent-flow-collected-consents [hidden]="currentMenu !== 'consents'"></consent-flow-collected-consents>
       </div>
     </consent-flow-sidebar-nav>
