@@ -1,9 +1,11 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, inject, Output } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { JsonPipe, NgIf } from '@angular/common';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatButtonModule } from '@angular/material/button';
+import { ConsentFacade } from '../data-access/+state/consent.facade';
+import { Consent } from '../data-access/model/consent';
 
 @Component({
   standalone: true,
@@ -63,11 +65,10 @@ export class FeatGiveConsentComponent {
     receiveNewsletter: this.receiveNewsletterControl,
     contributeToAnonymousStatistics: this.contributeToAnonymousStatisticsControl,
   });
-  @Output() redirectToConsentOverview = new EventEmitter<void>();
+  private readonly consentFacade = inject(ConsentFacade);
   saveConsent() {
     if (this.formGroup.valid) {
-      // TODO save consent
-      this.redirectToConsentOverview.emit();
+      this.consentFacade.addConsent(this.formGroup.value as Consent);
       this.formGroup.reset();
     } else {
       this.formGroup.markAllAsTouched();

@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { AsyncPipe, NgClass, NgForOf, NgIf } from '@angular/common';
 import { MatSidenavModule } from '@angular/material/sidenav';
-import { MenuItem } from '../shared/model/menu';
+import { MenuItem } from '../data-access/model/menu';
 
 @Component({
   standalone: true,

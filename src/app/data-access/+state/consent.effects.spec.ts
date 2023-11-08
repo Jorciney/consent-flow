@@ -23,11 +23,11 @@ describe('ConsentEffects', () => {
 
   describe('init$', () => {
     it('should work', () => {
-      actions = hot('-a-|', { a: ConsentActions.initConsent() });
+      actions = hot('-a-|', { a: ConsentActions.loadConsents() });
 
-      const expected = hot('-a-|', { a: ConsentActions.loadConsentSuccess({ consent: [] }) });
+      const expected = hot('-a-|', { a: ConsentActions.loadConsentSuccess({ consents: [] }) });
 
-      expect(effects.init$).toBeObservable(expected);
+      expect(effects.loadConsents$).toBeObservable(expected);
     });
   });
 });

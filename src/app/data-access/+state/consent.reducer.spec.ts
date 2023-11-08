@@ -1,19 +1,22 @@
 import { Action } from '@ngrx/store';
 
 import * as ConsentActions from './consent.actions';
-import { ConsentEntity } from './consent.models';
 import { ConsentState, initialConsentState, consentReducer } from './consent.reducer';
+import { Consent } from '../model/consent';
 
 describe('Consent Reducer', () => {
-  const createConsentEntity = (id: string, name = ''): ConsentEntity => ({
-    id,
+  const createConsentEntity = (id: string, name = ''): Consent => ({
+    email: 'test@gmail.com',
+    seeTargetAdds: false,
+    contributeToAnonymousStatistics: false,
+    receiveNewsletter: true,
     name: name || `name-${id}`,
   });
 
   describe('valid Consent actions', () => {
     it('loadConsentSuccess should return the list of known Consent', () => {
-      const consent = [createConsentEntity('PRODUCT-AAA'), createConsentEntity('PRODUCT-zzz')];
-      const action = ConsentActions.loadConsentSuccess({ consent });
+      const consents = [createConsentEntity('PRODUCT-AAA'), createConsentEntity('PRODUCT-zzz')];
+      const action = ConsentActions.loadConsentSuccess({ consents });
 
       const result: ConsentState = consentReducer(initialConsentState, action);
 

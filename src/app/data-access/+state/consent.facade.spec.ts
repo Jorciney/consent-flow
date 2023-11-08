@@ -7,9 +7,9 @@ import { readFirst } from '@nx/angular/testing';
 import * as ConsentActions from './consent.actions';
 import { ConsentEffects } from './consent.effects';
 import { ConsentFacade } from './consent.facade';
-import { ConsentEntity } from './consent.models';
 import { CONSENT_FEATURE_KEY, ConsentState, initialConsentState, consentReducer } from './consent.reducer';
 import * as ConsentSelectors from './consent.selectors';
+import { Consent } from '../model/consent';
 
 interface TestSchema {
   consent: ConsentState;
@@ -18,8 +18,11 @@ interface TestSchema {
 describe('ConsentFacade', () => {
   let facade: ConsentFacade;
   let store: Store<TestSchema>;
-  const createConsentEntity = (id: string, name = ''): ConsentEntity => ({
-    id,
+  const createConsentEntity = (id: string, name = ''): Consent => ({
+    email: 'test@gmail.com',
+    seeTargetAdds: false,
+    contributeToAnonymousStatistics: false,
+    receiveNewsletter: true,
     name: name || `name-${id}`,
   });
 
@@ -54,7 +57,7 @@ describe('ConsentFacade', () => {
       expect(list.length).toBe(0);
       expect(isLoaded).toBe(false);
 
-      facade.init();
+      facade.loadConsents();
 
       list = await readFirst(facade.allConsent$);
       isLoaded = await readFirst(facade.loaded$);
@@ -75,7 +78,7 @@ describe('ConsentFacade', () => {
 
       store.dispatch(
         ConsentActions.loadConsentSuccess({
-          consent: [createConsentEntity('AAA'), createConsentEntity('BBB')],
+          consents: [createConsentEntity('AAA'), createConsentEntity('BBB')],
         })
       );
 

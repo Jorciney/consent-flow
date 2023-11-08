@@ -1,15 +1,18 @@
-import { ConsentEntity } from './consent.models';
 import { consentAdapter, ConsentPartialState, initialConsentState } from './consent.reducer';
 import * as ConsentSelectors from './consent.selectors';
+import { Consent } from '../model/consent';
 
 describe('Consent Selectors', () => {
   const ERROR_MSG = 'No Error Available';
-  const getConsentId = (it: ConsentEntity) => it.id;
+  const getConsentId = (it: Consent) => it.email;
   const createConsentEntity = (id: string, name = '') =>
     ({
-      id,
+      email: 'test@gmail.com',
+      seeTargetAdds: false,
+      contributeToAnonymousStatistics: false,
+      receiveNewsletter: true,
       name: name || `name-${id}`,
-    } as ConsentEntity);
+    } as Consent);
 
   let state: ConsentPartialState;
 
@@ -37,7 +40,7 @@ describe('Consent Selectors', () => {
     });
 
     it('selectEntity() should return the selected Entity', () => {
-      const result = ConsentSelectors.selectEntity(state) as ConsentEntity;
+      const result = ConsentSelectors.selectEntity(state) as Consent;
       const selId = getConsentId(result);
 
       expect(selId).toBe('PRODUCT-BBB');
