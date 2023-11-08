@@ -14,12 +14,14 @@ import { MatButtonModule } from '@angular/material/button';
         <mat-form-field class="w-2/4">
           <mat-label>Name</mat-label>
           <input type="text" matInput [formControl]="nameControl" placeholder="Name" />
-          <mat-error *ngIf="nameControl.hasError('required')"> Name is <strong>required</strong></mat-error>
+          <mat-error *ngIf="nameControl.hasError('required')"> Name is required</mat-error>
         </mat-form-field>
         <mat-form-field class="w-2/4">
           <mat-label>Email address</mat-label>
-          <input type="text" matInput [formControl]="emailControl" placeholder="Email address" />
-          <mat-error *ngIf="emailControl.hasError('required')"> Email is <strong>required</strong></mat-error>
+          <input type="email" matInput [formControl]="emailControl" placeholder="Email address" />
+          <mat-error *ngIf="emailControl.hasError('required')"> Email is required</mat-error>
+          <mat-error *ngIf="emailControl.hasError('pattern')"> pattern is required</mat-error>
+          <mat-error *ngIf="emailControl.hasError('email')"> You've entered an invalid email address</mat-error>
         </mat-form-field>
       </section>
       I agree to:
@@ -50,7 +52,7 @@ import { MatButtonModule } from '@angular/material/button';
 })
 export class FeatGiveConsentComponent {
   nameControl = new FormControl('', Validators.required);
-  emailControl = new FormControl('', Validators.required);
+  emailControl = new FormControl('', [Validators.required, Validators.email]);
   receiveNewsletterControl = new FormControl(false);
   seeTargetAdsControl = new FormControl(false);
   contributeToAnonymousStatisticsControl = new FormControl(false);
