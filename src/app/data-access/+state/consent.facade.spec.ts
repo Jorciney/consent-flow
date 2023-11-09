@@ -20,7 +20,7 @@ describe('ConsentFacade', () => {
   let store: Store<TestSchema>;
   const createConsentEntity = (id: string, name = ''): Consent => ({
     email: 'test@gmail.com',
-    seeTargetAdds: false,
+    seeTargetAds: false,
     contributeToAnonymousStatistics: false,
     receiveNewsletter: true,
     name: name || `name-${id}`,

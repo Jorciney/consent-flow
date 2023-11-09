@@ -61,7 +61,7 @@ export class FeatGiveConsentComponent {
   formGroup = new FormGroup({
     name: this.nameControl,
     email: this.emailControl,
-    seeTargetAdds: this.seeTargetAdsControl,
+    seeTargetAds: this.seeTargetAdsControl,
     receiveNewsletter: this.receiveNewsletterControl,
     contributeToAnonymousStatistics: this.contributeToAnonymousStatisticsControl,
   });

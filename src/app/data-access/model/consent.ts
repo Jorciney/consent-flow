@@ -2,6 +2,6 @@ export interface Consent {
   name: string;
   email: string;
   receiveNewsletter: boolean;
-  seeTargetAdds: boolean;
+  seeTargetAds: boolean;
   contributeToAnonymousStatistics: boolean;
 }
