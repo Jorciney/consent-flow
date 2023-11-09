@@ -14,8 +14,13 @@ export class ConsentEffects {
   loadConsents$ = createEffect(() =>
     this.actions$.pipe(
       ofType(ConsentActions.loadConsents),
-      mergeMap(() => this.consentService.loadConsents()),
-      map((consents) => ConsentActions.loadConsentSuccess({ consents })),
+      mergeMap((action) =>
+        this.consentService.loadConsents({
+          start: action.query?.start || 0,
+          count: action.query?.count ?? 2,
+        })
+      ),
+      map((consentsPage) => ConsentActions.loadConsentSuccess({ consentsPage })),
       catchError((error) => {
         console.error('Error', error);
         return of(ConsentActions.loadConsentFailure({ error }));

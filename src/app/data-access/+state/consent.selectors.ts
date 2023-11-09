@@ -19,3 +19,4 @@ export const selectSelectedId = createSelector(selectConsentState, (state: Conse
 export const selectEntity = createSelector(selectConsentEntities, selectSelectedId, (entities, selectedId) =>
   selectedId ? entities[selectedId] : undefined
 );
+export const selectPage = createSelector(selectConsentState, (state: ConsentState) => state.page);

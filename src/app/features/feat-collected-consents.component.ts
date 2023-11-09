@@ -1,19 +1,23 @@
 import { Component, inject } from '@angular/core';
 import { ConsentTableComponent } from '../ui/consent-table.component';
 import { ConsentFacade } from '../data-access/+state/consent.facade';
-import { TableMetadata } from '../data-access/model/table';
-import { AsyncPipe } from '@angular/common';
+import { QueryPage, TableMetadata } from '../data-access/model/table';
+import { AsyncPipe, NgIf } from '@angular/common';
 import { map } from 'rxjs';
 
 @Component({
   standalone: true,
   selector: 'consent-flow-collected-consents',
   template: `
-    <consent-flow-consent-table
-      [dataSource]="consents$ | async"
-      [metadataList]="consentTableMetadataList"></consent-flow-consent-table>
+    <ng-container *ngIf="page$ | async as page">
+      <consent-flow-consent-table
+        [dataSource]="consents$ | async"
+        [page]="page"
+        (changePage)="changePage($event, page)"
+        [metadataList]="consentTableMetadataList"></consent-flow-consent-table>
+    </ng-container>
   `,
-  imports: [ConsentTableComponent, AsyncPipe],
+  imports: [ConsentTableComponent, AsyncPipe, NgIf],
 })
 export class FeatCollectedConsentsComponent {
   consentTableMetadataList: TableMetadata[] = [
@@ -22,6 +26,7 @@ export class FeatCollectedConsentsComponent {
     { prop: 'consentGiven', title: 'Consent given for' },
   ];
   private readonly consentFacade = inject(ConsentFacade);
+  page$ = this.consentFacade.page$;
   consents$ = this.consentFacade.allConsent$.pipe(
     map((consents) =>
       consents.map((consent) => {
@@ -39,4 +44,11 @@ export class FeatCollectedConsentsComponent {
       })
     )
   );
+
+  changePage(pageNumber: number, currentQuery: QueryPage) {
+    this.consentFacade.loadConsents({
+      count: 2,
+      start: pageNumber * currentQuery.count,
+    });
+  }
 }

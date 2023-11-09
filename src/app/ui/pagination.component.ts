@@ -7,26 +7,34 @@ import { NgClass, NgForOf, NgIf } from '@angular/common';
   selector: 'consent-flow-pagination',
   template: `
     <div class="w-full flex flex-row justify-between items-center gap-5 text-blue-600">
-      <a *ngIf="currentPage !== 1" (click)="previousClick.emit()" class="mr-40 p-1 cursor-pointer"><< Previous page</a>
+      <a
+        *ngIf="currentPage !== 0; else emptyPlaceholder"
+        (click)="changePage.emit(currentPage - 1)"
+        class="mr-40 p-1 cursor-pointer"
+        ><< Previous page</a
+      >
       <div class="flex flex-row">
         <ng-container *ngFor="let page of [].constructor(totalPages); let i = index">
-          <div
-            (click)="pageClick.emit(page)"
-            class="p-1 cursor-pointer"
-            [ngClass]="{ 'font-bold': currentPage === i + 1 }">
+          <div (click)="changePage.emit(i)" class="p-1 cursor-pointer" [ngClass]="{ 'font-bold': currentPage === i }">
             {{ i + 1 }}
           </div>
         </ng-container>
       </div>
-      <a *ngIf="currentPage !== totalPages" (click)="nextClick.emit()" class="ml-40 p-1 cursor-pointer">Next page >></a>
+      <a
+        *ngIf="currentPage !== totalPages - 1; else emptyPlaceholder"
+        (click)="changePage.emit(currentPage + 1)"
+        class="ml-40 p-1 cursor-pointer"
+        >Next page >></a
+      >
     </div>
+    <ng-template #emptyPlaceholder>
+      <div class="w-60"></div>
+    </ng-template>
   `,
   imports: [NgForOf, NgClass, NgIf],
 })
 export class PaginationComponent {
-  @Output() previousClick = new EventEmitter<void>();
-  @Output() nextClick = new EventEmitter<void>();
-  @Output() pageClick = new EventEmitter<number>();
+  @Output() changePage = new EventEmitter<number>();
   @Input() currentPage: number = 0;
-  @Input() totalPages?: number;
+  @Input() totalPages: number;
 }

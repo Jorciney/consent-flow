@@ -1,7 +1,7 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { MatTableModule } from '@angular/material/table';
-import { NgForOf } from '@angular/common';
-import { TableMetadata } from '../data-access/model/table';
+import { NgForOf, NgIf } from '@angular/common';
+import { QueryPage, TableMetadata } from '../data-access/model/table';
 import { PaginationComponent } from './pagination.component';
 
 @Component({
@@ -19,16 +19,25 @@ import { PaginationComponent } from './pagination.component';
         <tr mat-header-row *matHeaderRowDef="columnNames"></tr>
         <tr mat-row *matRowDef="let row; columns: columnNames"></tr>
       </table>
-      <consent-flow-pagination class="w-full" [totalPages]="(dataSource?.length || 0) / 2"></consent-flow-pagination>
+      <consent-flow-pagination
+        class="w-full"
+        *ngIf="page"
+        [totalPages]="page.size! / page.count"
+        (changePage)="changePage.emit($event)"
+        [currentPage]="Math.ceil((page.start + 1) / page.count) - 1"></consent-flow-pagination>
     </div>
   `,
-  imports: [MatTableModule, NgForOf, PaginationComponent],
+  imports: [MatTableModule, NgForOf, PaginationComponent, NgIf],
 })
 export class ConsentTableComponent {
   @Input() dataSource: unknown[] | null;
+  @Input() page: QueryPage;
   @Input() metadataList: TableMetadata[];
+  @Output() changePage = new EventEmitter<number>();
 
   get columnNames(): string[] {
     return this.metadataList?.map((metadata) => metadata.prop) || [];
   }
+
+  protected readonly Math = Math;
 }
