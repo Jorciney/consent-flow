@@ -37,9 +37,7 @@ const reducer = createReducer(
       page: { start: consentsPage.start || 0, count: consentsPage.count || 0, size: consentsPage.size },
     })
   ),
-  on(ConsentActions.addConsentSuccess, (state, { consent }) =>
-    consentAdapter.addOne(consent, { ...state, loaded: true })
-  ),
+  on(ConsentActions.addConsentSuccess, (state, { consent }) => ({ ...state, loaded: true, error: null })),
 
   on(ConsentActions.loadConsentFailure, (state, { error }) => ({ ...state, error }))
 );

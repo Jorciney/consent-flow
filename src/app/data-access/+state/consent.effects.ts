@@ -38,12 +38,11 @@ export class ConsentEffects {
       })
     )
   );
-  addConsentSuccess$ = createEffect(
-    () =>
-      this.actions$.pipe(
-        ofType(ConsentActions.addConsentSuccess),
-        tap((action) => this.router.navigate(['consents']))
-      ),
-    { dispatch: false }
+  addConsentSuccess$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(ConsentActions.addConsentSuccess),
+      tap((action) => this.router.navigate(['consents'])),
+      map(() => ConsentActions.loadConsents({ query: { start: 0, count: 2 } }))
+    )
   );
 }
