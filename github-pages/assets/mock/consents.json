@@ -1,0 +1,212 @@
+[
+  {
+    "name": "John Doe",
+    "email": "john.doe@example.com",
+    "receiveNewsletter": true,
+    "seeTargetAds": false,
+    "contributeToAnonymousStatistics": true
+  },
+  {
+    "name": "Jane Smith",
+    "email": "jane.smith@example.com",
+    "receiveNewsletter": false,
+    "seeTargetAds": true,
+    "contributeToAnonymousStatistics": true
+  },
+  {
+    "name": "Mike Johnson",
+    "email": "mike.johnson@example.com",
+    "receiveNewsletter": true,
+    "seeTargetAds": true,
+    "contributeToAnonymousStatistics": false
+  },
+  {
+    "name": "Emily Davis",
+    "email": "emily.davis@example.com",
+    "receiveNewsletter": false,
+    "seeTargetAds": false,
+    "contributeToAnonymousStatistics": true
+  },
+  {
+    "name": "David Wilson",
+    "email": "david.wilson@example.com",
+    "receiveNewsletter": true,
+    "seeTargetAds": false,
+    "contributeToAnonymousStatistics": false
+  },
+  {
+    "name": "Sarah Brown",
+    "email": "sarah.brown@example.com",
+    "receiveNewsletter": false,
+    "seeTargetAds": true,
+    "contributeToAnonymousStatistics": false
+  },
+  {
+    "name": "Michael Lee",
+    "email": "michael.lee@example.com",
+    "receiveNewsletter": true,
+    "seeTargetAds": true,
+    "contributeToAnonymousStatistics": true
+  },
+  {
+    "name": "Jessica Hall",
+    "email": "jessica.hall@example.com",
+    "receiveNewsletter": false,
+    "seeTargetAds": false,
+    "contributeToAnonymousStatistics": true
+  },
+  {
+    "name": "Daniel Clark",
+    "email": "daniel.clark@example.com",
+    "receiveNewsletter": true,
+    "seeTargetAds": false,
+    "contributeToAnonymousStatistics": true
+  },
+  {
+    "name": "Linda Harris",
+    "email": "linda.harris@example.com",
+    "receiveNewsletter": false,
+    "seeTargetAds": true,
+    "contributeToAnonymousStatistics": false
+  },
+  {
+    "name": "Christopher Turner",
+    "email": "christopher.turner@example.com",
+    "receiveNewsletter": true,
+    "seeTargetAds": true,
+    "contributeToAnonymousStatistics": false
+  },
+  {
+    "name": "Karen Adams",
+    "email": "karen.adams@example.com",
+    "receiveNewsletter": false,
+    "seeTargetAds": false,
+    "contributeToAnonymousStatistics": true
+  },
+  {
+    "name": "Matthew Scott",
+    "email": "matthew.scott@example.com",
+    "receiveNewsletter": true,
+    "seeTargetAds": false,
+    "contributeToAnonymousStatistics": false
+  },
+  {
+    "name": "Jennifer White",
+    "email": "jennifer.white@example.com",
+    "receiveNewsletter": false,
+    "seeTargetAds": true,
+    "contributeToAnonymousStatistics": false
+  },
+  {
+    "name": "Andrew Martinez",
+    "email": "andrew.martinez@example.com",
+    "receiveNewsletter": true,
+    "seeTargetAds": true,
+    "contributeToAnonymousStatistics": true
+  },
+  {
+    "name": "Susan Thomas",
+    "email": "susan.thomas@example.com",
+    "receiveNewsletter": false,
+    "seeTargetAds": false,
+    "contributeToAnonymousStatistics": true
+  },
+  {
+    "name": "James Lewis",
+    "email": "james.lewis@example.com",
+    "receiveNewsletter": true,
+    "seeTargetAds": false,
+    "contributeToAnonymousStatistics": true
+  },
+  {
+    "name": "Patricia King",
+    "email": "patricia.king@example.com",
+    "receiveNewsletter": false,
+    "seeTargetAds": true,
+    "contributeToAnonymousStatistics": false
+  },
+  {
+    "name": "Robert Turner",
+    "email": "robert.turner@example.com",
+    "receiveNewsletter": true,
+    "seeTargetAds": true,
+    "contributeToAnonymousStatistics": false
+  },
+  {
+    "name": "Betty Harris",
+    "email": "betty.harris@example.com",
+    "receiveNewsletter": false,
+    "seeTargetAds": false,
+    "contributeToAnonymousStatistics": true
+  },
+  {
+    "name": "William Hall",
+    "email": "william.hall@example.com",
+    "receiveNewsletter": true,
+    "seeTargetAds": false,
+    "contributeToAnonymousStatistics": true
+  },
+  {
+    "name": "Nancy Wilson",
+    "email": "nancy.wilson@example.com",
+    "receiveNewsletter": false,
+    "seeTargetAds": true,
+    "contributeToAnonymousStatistics": false
+  },
+  {
+    "name": "Thomas Adams",
+    "email": "thomas.adams@example.com",
+    "receiveNewsletter": true,
+    "seeTargetAds": true,
+    "contributeToAnonymousStatistics": false
+  },
+  {
+    "name": "Deborah Moore",
+    "email": "deborah.moore@example.com",
+    "receiveNewsletter": false,
+    "seeTargetAds": false,
+    "contributeToAnonymousStatistics": true
+  },
+  {
+    "name": "Richard Davis",
+    "email": "richard.davis@example.com",
+    "receiveNewsletter": true,
+    "seeTargetAds": false,
+    "contributeToAnonymousStatistics": true
+  },
+  {
+    "name": "Karen Garcia",
+    "email": "karen.garcia@example.com",
+    "receiveNewsletter": false,
+    "seeTargetAds": true,
+    "contributeToAnonymousStatistics": false
+  },
+  {
+    "name": "Joseph Martinez",
+    "email": "joseph.martinez@example.com",
+    "receiveNewsletter": true,
+    "seeTargetAds": true,
+    "contributeToAnonymousStatistics": true
+  },
+  {
+    "name": "Margaret Taylor",
+    "email": "margaret.taylor@example.com",
+    "receiveNewsletter": false,
+    "seeTargetAds": false,
+    "contributeToAnonymousStatistics": true
+  },
+  {
+    "name": "John Robinson",
+    "email": "john.robinson@example.com",
+    "receiveNewsletter": true,
+    "seeTargetAds": false,
+    "contributeToAnonymousStatistics": false
+  },
+  {
+    "name": "Dorothy Turner",
+    "email": "dorothy.turner@example.com",
+    "receiveNewsletter": false,
+    "seeTargetAds": true,
+    "contributeToAnonymousStatistics": false
+  }
+]

@@ -4,6 +4,7 @@
   "license": "MIT",
   "scripts": {
     "start": "nx serve",
+    "build-page": "nx build consent-flow --output-path github-pages --base-href /consent-flow/",
     "build": "nx build",
     "format": "npx prettier --write .",
     "test": "nx test"
