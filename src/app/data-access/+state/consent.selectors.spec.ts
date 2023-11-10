@@ -7,7 +7,7 @@ describe('Consent Selectors', () => {
   const getConsentId = (it: Consent) => it.email;
   const createConsentEntity = (id: string, name = '') =>
     ({
-      email: 'test@gmail.com',
+      email: id,
       seeTargetAds: false,
       contributeToAnonymousStatistics: false,
       receiveNewsletter: true,

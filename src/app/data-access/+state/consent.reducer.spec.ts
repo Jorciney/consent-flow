@@ -6,7 +6,7 @@ import { Consent } from '../model/consent';
 
 describe('Consent Reducer', () => {
   const createConsentEntity = (id: string, name = ''): Consent => ({
-    email: 'test@gmail.com',
+    email: id,
     seeTargetAds: false,
     contributeToAnonymousStatistics: false,
     receiveNewsletter: true,
@@ -16,7 +16,9 @@ describe('Consent Reducer', () => {
   describe('valid Consent actions', () => {
     it('loadConsentSuccess should return the list of known Consent', () => {
       const consents = [createConsentEntity('PRODUCT-AAA'), createConsentEntity('PRODUCT-zzz')];
-      const action = ConsentActions.loadConsentSuccess({ consents });
+      const action = ConsentActions.loadConsentSuccess({
+        consentsPage: { data: consents, start: 0, count: 2, size: 2 },
+      });
 
       const result: ConsentState = consentReducer(initialConsentState, action);
 
