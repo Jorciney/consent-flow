@@ -22,7 +22,7 @@ import { PaginationComponent } from './pagination.component';
       <consent-flow-pagination
         class="w-full"
         *ngIf="page"
-        [totalPages]="page.size! / page.count"
+        [totalPages]="Math.ceil(page.size! / page.count)"
         (changePage)="changePage.emit($event)"
         [currentPage]="Math.ceil((page.start + 1) / page.count) - 1"></consent-flow-pagination>
     </div>
