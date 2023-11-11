@@ -74,6 +74,6 @@ jobs:
         with:
           install: true
           wait-on: http://localhost:4200
-          timeout: 120000
+          timeout: 600000
           project: e2e
       - run: npx nx run e2e:e2e
