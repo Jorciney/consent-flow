@@ -88,6 +88,6 @@ jobs:
             npx nx run e2e:e2e
           wait-on: http://localhost:4200
           wait-on-timeout: 120
-          working-directory: e2e
+          project: e2e
           record: true
           parallel: true
