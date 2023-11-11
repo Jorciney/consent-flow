@@ -81,4 +81,5 @@ jobs:
         with:
           path: ~/.cache/Cypress
           key: cypress-${{ runner.os }}-binary-${{ hashFiles('package-lock.json') }}
+      - uses: cypress-io/github-action@v6
       - run: npx nx run e2e:e2e
