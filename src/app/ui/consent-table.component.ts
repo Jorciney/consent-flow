@@ -13,7 +13,9 @@ import { PaginationComponent } from './pagination.component';
         <ng-container *ngFor="let metadata of metadataList">
           <ng-container [matColumnDef]="metadata.prop">
             <th mat-header-cell *matHeaderCellDef>{{ metadata.title }}</th>
-            <td mat-cell *matCellDef="let element">{{ element[metadata.prop] }}</td>
+            <td mat-cell [attr.data-cy]="'cell-' + metadata.prop" *matCellDef="let element">
+              {{ element[metadata.prop] }}
+            </td>
           </ng-container>
         </ng-container>
         <tr mat-header-row *matHeaderRowDef="columnNames"></tr>

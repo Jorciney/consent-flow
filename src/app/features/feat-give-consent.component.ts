@@ -15,12 +15,17 @@ import { Consent } from '../data-access/model/consent';
       <section class="xs:flex-col inline-flex w-full gap-3 justify-center items-center">
         <mat-form-field class="w-2/4">
           <mat-label>Name</mat-label>
-          <input type="text" matInput [formControl]="nameControl" placeholder="Name" />
+          <input type="text" matInput [attr.data-cy]="'inputName'" [formControl]="nameControl" placeholder="Name" />
           <mat-error *ngIf="nameControl.hasError('required')"> Name is required</mat-error>
         </mat-form-field>
         <mat-form-field class="w-2/4">
           <mat-label>Email address</mat-label>
-          <input type="email" matInput [formControl]="emailControl" placeholder="Email address" />
+          <input
+            type="email"
+            [attr.data-cy]="'inputEmail'"
+            matInput
+            [formControl]="emailControl"
+            placeholder="Email address" />
           <mat-error *ngIf="emailControl.hasError('required')"> Email is required</mat-error>
           <mat-error *ngIf="emailControl.hasError('pattern')"> pattern is required</mat-error>
           <mat-error *ngIf="emailControl.hasError('email')"> You've entered an invalid email address</mat-error>
@@ -28,9 +33,15 @@ import { Consent } from '../data-access/model/consent';
       </section>
       I agree to:
       <section class="border border-1 border-gray-400 flex flex-col justify-start items-start p-3 w-8/12">
-        <mat-checkbox [formControl]="receiveNewsletterControl">Receive newsletter</mat-checkbox>
-        <mat-checkbox [formControl]="seeTargetAdsControl">Be shown target ads</mat-checkbox>
-        <mat-checkbox [formControl]="contributeToAnonymousStatisticsControl"
+        <mat-checkbox [attr.data-cy]="'receiveNewsLetter'" [formControl]="receiveNewsletterControl"
+          >Receive newsletter</mat-checkbox
+        >
+        <mat-checkbox [attr.data-cy]="'seeTargetAdds'" [formControl]="seeTargetAdsControl"
+          >Be shown target ads</mat-checkbox
+        >
+        <mat-checkbox
+          [attr.data-cy]="'contributeToAnonymousStatistics'"
+          [formControl]="contributeToAnonymousStatisticsControl"
           >Contribute to anonymous visit statistics
         </mat-checkbox>
       </section>
@@ -39,6 +50,7 @@ import { Consent } from '../data-access/model/consent';
           mat-raised-button
           color="primary"
           type="button"
+          [attr.data-cy]="'buttonSaveConsent'"
           (click)="saveConsent()"
           [disabled]="
             !receiveNewsletterControl.value &&

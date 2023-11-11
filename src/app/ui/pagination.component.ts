@@ -13,8 +13,12 @@ import { NgClass, NgForOf, NgIf } from '@angular/common';
         ><< Previous page</a
       >
       <div class="flex flex-row">
-        <ng-container *ngFor="let page of [].constructor(totalPages); let i = index">
-          <div (click)="changePage.emit(i)" class="p-1 cursor-pointer" [ngClass]="{ 'font-bold': currentPage === i }">
+        <ng-container *ngFor="let page of [].constructor(totalPages); let i = index; last as isLast">
+          <div
+            [attr.data-cy]="isLast ? 'lastPage' : 'pageNumber' + (i + 1)"
+            (click)="changePage.emit(i)"
+            class="p-1 cursor-pointer"
+            [ngClass]="{ 'font-bold': currentPage === i }">
             {{ i + 1 }}
           </div>
         </ng-container>

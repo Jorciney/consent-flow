@@ -20,6 +20,23 @@
         }
       }
     },
+    "e2e-local": {
+      "executor": "@nx/cypress:cypress",
+      "options": {
+        "cypressConfig": "e2e/cypress.config.ts",
+        "testingType": "e2e",
+        "watch": true,
+        "devServerTarget": "consent-flow:serve:development"
+      },
+      "configurations": {
+        "production": {
+          "devServerTarget": "consent-flow:serve:production"
+        },
+        "ci": {
+          "devServerTarget": "consent-flow:serve-static"
+        }
+      }
+    },
     "lint": {
       "executor": "@nx/eslint:lint",
       "outputs": ["{options.outputFile}"],
