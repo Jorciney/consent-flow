@@ -81,6 +81,7 @@ jobs:
           wait-on: http://localhost:4200
           wait-on-timeout: 1200
           project: e2e
+          working-directory: .
           browser: chrome
 
 
