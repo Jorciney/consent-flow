@@ -89,4 +89,5 @@ jobs:
           wait-on: http://localhost:4200
           wait-on-timeout: 120
           project: e2e
+          record: true
           parallel: true
