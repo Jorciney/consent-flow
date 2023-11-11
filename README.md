@@ -6,7 +6,7 @@ Consent-Flow is an Angular-based application designed to manage user consents fo
 
 ## Live Demo
 
-Check out the live demo of the application [here](https://jorciney.github.io/consent-flow/give-consent).
+Check out the live demo of the application [here](https://jorciney.github.io/consent-flow).
 
 ## Technology Stack
 
@@ -15,6 +15,7 @@ Check out the live demo of the application [here](https://jorciney.github.io/con
 - **Tailwind CSS**: A utility-first CSS framework for rapidly building custom designs.
 - **Angular Material**: Material Design components for Angular.
 - **NgRx**: Reactive State for Angular.
+- **Cypress**: End-to-end testing framework for testing the application flow.
 - **Reactive Forms**: An Angular technique for creating forms in a reactive style.
 
 ## Features

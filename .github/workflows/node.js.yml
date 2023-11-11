@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [16.x, 18.x, 20.x]
+        node-version: [18.x]
     outputs:
       cache-key: ${{ steps.cache-dependencies.outputs.cache-key }}
     steps:
@@ -38,7 +38,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [16.x, 18.x, 20.x]
+        node-version: [18.x]
     steps:
       - uses: actions/checkout@v3
       - name: Download node_modules
@@ -52,7 +52,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [16.x, 18.x, 20.x]
+        node-version: [18.x]
     steps:
       - uses: actions/checkout@v3
       - name: Download node_modules
@@ -66,7 +66,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [16.x, 18.x, 20.x]
+        node-version: [18.x]
     steps:
       - uses: actions/checkout@v3
       - name: Download node_modules
