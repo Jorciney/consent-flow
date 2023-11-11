@@ -23,12 +23,6 @@ jobs:
           path: node_modules
           key: node-${{ matrix.node-version }}-${{ hashFiles('package-lock.json') }}
           restore-keys: node-${{ matrix.node-version }}-
-      - name: Cache Cypress binary
-        uses: actions/cache@v2
-        with:
-          path: ~/.cache/Cypress
-          key: cypress-${{ runner.os }}-binary-${{ hashFiles('package-lock.json') }}
-          restore-keys: cypress-${{ runner.os }}-binary-
       - name: Install dependencies
         if: steps.cache-node-modules.outputs.cache-hit != 'true'
         run: npm ci
@@ -76,16 +70,10 @@ jobs:
         with:
           path: node_modules
           key: node-${{ matrix.node-version }}-${{ hashFiles('package-lock.json') }}
-      - name: Restore Cypress binary from cache
-        uses: actions/cache@v2
-        with:
-          path: ~/.cache/Cypress
-          key: cypress-${{ runner.os }}-binary-${{ hashFiles('package-lock.json') }}
       - uses: cypress-io/github-action@v6
         with:
           install: true
-          start: |
-            npx nx run e2e:e2e
           wait-on: http://localhost:4200
-          wait-on-timeout: 120
+          timeout: 120000
           project: e2e
+      - run: npx nx run e2e:e2e
