@@ -79,8 +79,8 @@ jobs:
           start: |
             npx nx run e2e:e2e
           wait-on: http://localhost:4200
-          wait-on-timeout: 600000
-          config-file: e2e/cypress.config.ts
+          wait-on-timeout: 1200
+          project: e2e
           browser: chrome
           auto-cancel-after-failures: 2
 
