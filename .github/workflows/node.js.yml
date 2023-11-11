@@ -24,7 +24,6 @@ jobs:
           key: node-${{ matrix.node-version }}-npm-${{ hashFiles('package-lock.json') }}
           restore-keys: node-${{ matrix.node-version }}-npm-
       - name: Install dependencies
-        if: steps.cache-dependencies.outputs.cache-hit != 'true'
         run: npm ci --ignore-scripts
       - name: Save node_modules
         uses: actions/upload-artifact@v2
