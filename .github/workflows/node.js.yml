@@ -90,4 +90,3 @@ jobs:
           wait-on-timeout: 120
           project: e2e
           record: true
-          parallel: true
