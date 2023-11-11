@@ -83,7 +83,7 @@ jobs:
           key: cypress-${{ runner.os }}-binary-${{ hashFiles('package-lock.json') }}
       - uses: cypress-io/github-action@v6
         with:
-          install: false
+          install: true
           start: |
             npx nx run e2e:e2e
           wait-on: http://localhost:4200
