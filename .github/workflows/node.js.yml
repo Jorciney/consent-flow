@@ -60,6 +60,9 @@ jobs:
   e2e-test:
     needs: prepare
     runs-on: ubuntu-latest
+    container:
+      image: cypress/browsers:latest
+      options: --user 1001
     strategy:
       matrix:
         node-version: [18.x]
@@ -73,6 +76,12 @@ jobs:
       - uses: cypress-io/github-action@v6
         with:
           install: true
-          timeout: 600000
-          project: e2e
-      - run: npx nx run e2e:e2e
+          start: |
+            npx nx run e2e:e2e
+          wait-on: http://localhost:4200
+          wait-on-timeout: 600000
+          config-file: e2e/cypress.config.ts
+          browser: chrome
+          auto-cancel-after-failures: 2
+
+
