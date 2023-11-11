@@ -59,7 +59,7 @@ jobs:
       - run: npm test
 
   e2e-test:
-    needs: test
+    needs: build
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -72,4 +72,6 @@ jobs:
           path: node_modules
           key: node-${{ matrix.node-version }}-${{ hashFiles('package-lock.json') }}
       - uses: cypress-io/github-action@v6
+        with:
+          working-directory: ./e2e
       - run: npx nx run e2e:e2e
