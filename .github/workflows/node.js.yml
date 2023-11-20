@@ -83,5 +83,3 @@ jobs:
           project: e2e
           working-directory: .
           browser: chrome
-
-
