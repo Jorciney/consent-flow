@@ -53,5 +53,6 @@
       "style": "scss"
     }
   },
-  "defaultProject": "consent-flow"
+  "defaultProject": "consent-flow",
+  "nxCloudAccessToken": "MmFlY2UzZDgtMzQ1Mi00NGRlLThiYzQtNWU0MjhlYTg5YmJifHJlYWQtd3JpdGU="
 }
