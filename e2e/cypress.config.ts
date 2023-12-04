@@ -3,7 +3,7 @@ import { defineConfig } from 'cypress';
 
 const e2e = nxE2EPreset(__filename, { cypressDir: 'src' });
 export default defineConfig({
-  projectId: "en77r1",
+  projectId: 'en77r1',
   e2e: {
     ...e2e,
     baseUrl: 'http://localhost:4200',
