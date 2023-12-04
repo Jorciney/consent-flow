@@ -1,5 +1,3 @@
-import { getGreeting } from '../support/app.po';
-
 describe('e2e', () => {
   describe('Give Consent', () => {
     beforeEach(() => cy.visit('/'));
