@@ -54,6 +54,5 @@ export class FeatConsentFlowViewComponent implements OnInit {
   openMenu = (menuItem: string) => this.router.navigate([menuItem]);
   ngOnInit(): void {
     this.consentFacade.loadConsents({ start: 0, count: 2 });
-    throw new Error('Test from demo');
   }
 }
